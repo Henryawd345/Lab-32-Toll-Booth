@@ -44,7 +44,7 @@ int main() {
             Car payingCar = lane.front();
             lane.pop_front();
 
-            cout << "Time: " << timeStep << " Car paid: ";
+            cout << "Time: " << timeStep << " Operation: Car paid: ";
             cout << "[" << payingCar.getYear()
                  << " " << payingCar.getMake()
                  << " (" << payingCar.getTransponder() << ")]\n";
@@ -52,7 +52,7 @@ int main() {
             Car newCar;
             lane.push_back(newCar);
 
-            cout << "Time: " << timeStep << " Joined lane: ";
+            cout << "Time: " << timeStep << " Operation: Joined lane: ";
             cout << "[" << newCar.getYear()
                  << " " << newCar.getMake()
                  << " (" << newCar.getTransponder() << ")]\n";
