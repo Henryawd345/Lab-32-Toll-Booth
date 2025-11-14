@@ -25,7 +25,14 @@ void printQueue(const deque<Car> &lane){
 int main() {
     srand(static_cast<unsigned int>(time(nullptr)));
 
+    deque<Car> lane;
 
+    for (int i = 0; i < INITIAL_SIZE; i++){
+        lane.push_back(Car());
+    }
+
+    cout << "Initial queue:\n";
+    printQueue(lane);
 
     return 0;
 }
