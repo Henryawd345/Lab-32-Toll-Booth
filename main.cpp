@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int INITIAL_SIZE = 2;
+const int INITIAL_SIZE = 2;
 
 void printQueue(const deque<Car> &lane){
     cout << "Queue: \n";
@@ -15,7 +15,7 @@ void printQueue(const deque<Car> &lane){
         return;
     }
 
-    for (const Car &c : lane){
+    for (Car c : lane){
         cout << "    ";
         c.print();
     }
@@ -23,7 +23,9 @@ void printQueue(const deque<Car> &lane){
 }
 
 int main() {
-    
+    srand(static_cast<unsigned int>(time(nullptr)));
+
+
 
     return 0;
 }
