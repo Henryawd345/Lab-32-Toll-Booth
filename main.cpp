@@ -48,8 +48,20 @@ int main() {
             cout << "[" << payingCar.getYear()
                  << " " << payingCar.getMake()
                  << " (" << payingCar.getTransponder() << ")]\n";
+        } else {
+            Car newCar;
+            lane.push_back(newCar);
+
+            cout << "Time: " << timeStep << " Joined lane: ";
+            cout << "[" << newCar.getYear()
+                 << " " << newCar.getMake()
+                 << " (" << newCar.getTransponder() << ")]\n";
         }
 
+        printQueue(lane);
+        cout << endl;
+
+        timeStep++;
 
     }
 
