@@ -40,7 +40,15 @@ int main() {
     while (!lane.empty()){
         int roll = rand() % 100;
 
-        
+        if (roll < 55 && !lane.empty()){
+            Car payingCar = lane.front();
+            lane.pop_front();
+
+            cout << "Time: " << timeStep << " Car paid: ";
+            cout << "[" << payingCar.getYear()
+                 << " " << payingCar.getMake()
+                 << " (" << payingCar.getTransponder() << ")]\n";
+        }
 
 
     }
