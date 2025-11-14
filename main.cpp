@@ -33,6 +33,17 @@ int main() {
 
     cout << "Initial queue:\n";
     printQueue(lane);
+    cout << endl;
+
+    int timeStep = 1;
+
+    while (!lane.empty()){
+        int roll = rand() % 100;
+
+        
+
+
+    }
 
     return 0;
 }
