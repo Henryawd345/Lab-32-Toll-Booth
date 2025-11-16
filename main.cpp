@@ -23,6 +23,11 @@ void printQueue(const deque<Car> &lane){
 
 }
 
+void printInitialQueues(deque<Car> lanes[], int nrlanes){
+    cout << "Initial Queue:\n";
+
+}
+
 int main() {
     srand(static_cast<unsigned int>(time(nullptr)));
 
@@ -39,6 +44,8 @@ int main() {
         printQueue(lanes[i]);
         cout << endl;
     }
+
+    printInitialQueues(lanes, NR_LANES);
 
     return 0;
 }
