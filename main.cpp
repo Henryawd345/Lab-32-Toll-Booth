@@ -82,6 +82,13 @@ int main() {
                          << payingCar.getYear() << " "
                          << payingCar.getMake() << " ("
                          << payingCar.getTransponder() << ")]\n";
+                } else if (roll < PROB_PAY + PROB_JOIN) {
+                    Car newCar;
+                    lanes[i].push_back(newCar);
+                    cout << "Joined: ["
+                         << newCar.getYear() << " "
+                         << newCar.getMake() << " ("
+                         << newCar.getTransponder() << ")]\n";
                 }
                 
             }
