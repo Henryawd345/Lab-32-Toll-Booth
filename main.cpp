@@ -39,11 +39,6 @@ int main() {
         printQueue(lanes[i]);
         cout << endl;
     }
-     
-
-
-
-    
 
     return 0;
 }
