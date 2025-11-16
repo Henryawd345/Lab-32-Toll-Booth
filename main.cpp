@@ -10,6 +10,10 @@ const int INITIAL_SIZE = 2;
 const int NR_LANES = 4;
 const int TOTAL_TIME   = 20;
 
+const int PROB_PAY    = 46; 
+const int PROB_JOIN   = 39; 
+const int PROB_SWITCH = 15;
+
 
 void printQueue(const deque<Car> &lane){
     cout << "Queue: \n";
@@ -68,26 +72,18 @@ int main() {
                          << newCar.getMake() << " ("
                          << newCar.getTransponder() << ")]\n";
                 } else {
-                    cout << "No action";
+                    cout << "No action ";
                 }
             } else{
-                if (roll < 50)
-                {
+                if (roll < PROB_PAY){
                     Car payingCar = lanes[i].front();
                     lanes[i].pop_front();
                     cout << "Paid: ["
                          << payingCar.getYear() << " "
                          << payingCar.getMake() << " ("
                          << payingCar.getTransponder() << ")]\n";
-                } else {
-                    Car newCar;
-                    lanes[i].push_back(newCar);
-                    cout << "Joined: ["
-                         << newCar.getYear() << " "
-                         << newCar.getMake() << " ("
-                         << newCar.getTransponder() << ")]\n";
                 }
-
+                
             }
         }
         for (int i = 0; i < NR_LANES; i++)
