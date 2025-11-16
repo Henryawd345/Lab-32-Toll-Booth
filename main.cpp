@@ -67,12 +67,29 @@ int main() {
                          << newCar.getYear() << " "
                          << newCar.getMake() << " ("
                          << newCar.getTransponder() << ")]\n";
+                } else {
+                    cout << "No action";
                 }
-                
+            } else{
+                if (roll < 50)
+                {
+                    Car payingCar = lanes[i].front();
+                    lanes[i].pop_front();
+                    cout << "Paid: ["
+                         << payingCar.getYear() << " "
+                         << payingCar.getMake() << " ("
+                         << payingCar.getTransponder() << ")]\n";
+                } else {
+                    Car newCar;
+                    lanes[i].push_back(newCar);
+                    cout << "Joined: ["
+                         << newCar.getYear() << " "
+                         << newCar.getMake() << " ("
+                         << newCar.getTransponder() << ")]\n";
+                }
 
             }
         }
-        
         
     }
     
