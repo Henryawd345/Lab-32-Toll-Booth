@@ -5,8 +5,9 @@
 #include "Car.h"
 
 using namespace std;
-//test
+
 const int INITIAL_SIZE = 2;
+const int NR_LANES = 4;
 
 void printQueue(const deque<Car> &lane){
     cout << "Queue: \n";
@@ -25,24 +26,24 @@ void printQueue(const deque<Car> &lane){
 int main() {
     srand(static_cast<unsigned int>(time(nullptr)));
 
-    deque<Car> lane;
+    deque<Car> lanes[NR_LANES];
 
-    for (int i = 0; i < INITIAL_SIZE; i++){
-        lane.push_back(Car());
+    for (int i = 0; i < NR_LANES; i++){
+        lanes.push_back(Car());
     }
 
     cout << "Initial queue:\n";
-    printQueue(lane);
+    printQueue(lanes);
     cout << endl;
 
     int timeStep = 1;
 
-    while (!lane.empty()){
+    while (!lanes.empty()){
         int roll = rand() % 100;
 
-        if (roll < 55 && !lane.empty()){
-            Car payingCar = lane.front();
-            lane.pop_front();
+        if (roll < 55 && !lanes.empty()){
+            Car payingCar = lanes.front();
+            lanes.pop_front();
 
             cout << "Time: " << timeStep << " Operation: Car paid: ";
             cout << "[" << payingCar.getYear()
@@ -50,7 +51,7 @@ int main() {
                  << " (" << payingCar.getTransponder() << ")]\n";
         } else {
             Car newCar;
-            lane.push_back(newCar);
+            lanes.push_back(newCar);
 
             cout << "Time: " << timeStep << " Operation: Joined lane: ";
             cout << "[" << newCar.getYear()
@@ -58,7 +59,7 @@ int main() {
                  << " (" << newCar.getTransponder() << ")]\n";
         }
 
-        printQueue(lane);
+        printQueue(lanes);
         cout << endl;
 
         timeStep++;
