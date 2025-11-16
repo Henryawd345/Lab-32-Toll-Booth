@@ -8,6 +8,8 @@ using namespace std;
 
 const int INITIAL_SIZE = 2;
 const int NR_LANES = 4;
+const int TOTAL_TIME   = 20;
+
 
 void printQueue(const deque<Car> &lane){
     cout << "Queue: \n";
@@ -47,6 +49,33 @@ int main() {
     }
 
     printInitialQueues(lanes, NR_LANES);
+
+    for (int timeStep = 1; timeStep <= TOTAL_TIME; timeStep++){
+        cout << "Time: " << timeStep << "\n";
+
+        for (int i = 0; i < NR_LANES; i++)
+        {
+            cout << "Lane: " << i+1 << " ";
+
+            int roll = rand() % 100;
+            if(lanes[i].empty()){
+                if (roll < 50)
+                {
+                    Car newCar;
+                    lanes[i].push_back(newCar);
+                    cout << "Joined: ["
+                         << newCar.getYear() << " "
+                         << newCar.getMake() << " ("
+                         << newCar.getTransponder() << ")]\n";
+                }
+                
+
+            }
+        }
+        
+        
+    }
+    
 
     return 0;
 }
