@@ -72,7 +72,7 @@ int main() {
                          << newCar.getMake() << " ("
                          << newCar.getTransponder() << ")]\n";
                 } else {
-                    cout << "No action ";
+                    cout << "No action\n";
                 }
             } else{
                 if (roll < PROB_PAY){
@@ -89,6 +89,22 @@ int main() {
                          << newCar.getYear() << " "
                          << newCar.getMake() << " ("
                          << newCar.getTransponder() << ")]\n";
+                }else{
+                    Car switchCar = lanes[i].back();
+                    lanes[i].pop_back();
+
+                    int targetLane = i;
+                    while (targetLane == i) {
+                        targetLane = rand() % NR_LANES;
+                    }
+
+                    lanes[targetLane].push_back(switchCar);
+
+                    cout << "Switched: ["
+                         << switchCar.getYear() << " "
+                         << switchCar.getMake() << " ("
+                         << switchCar.getTransponder() << ")]\n";
+
                 }
                 
             }
