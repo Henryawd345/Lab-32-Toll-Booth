@@ -29,42 +29,21 @@ int main() {
     deque<Car> lanes[NR_LANES];
 
     for (int i = 0; i < NR_LANES; i++){
-        lanes.push_back(Car());
+        lanes[i].push_back(Car());
     }
 
-    cout << "Initial queue:\n";
-    printQueue(lanes);
-    cout << endl;
-
-    int timeStep = 1;
-
-    while (!lanes.empty()){
-        int roll = rand() % 100;
-
-        if (roll < 55 && !lanes.empty()){
-            Car payingCar = lanes.front();
-            lanes.pop_front();
-
-            cout << "Time: " << timeStep << " Operation: Car paid: ";
-            cout << "[" << payingCar.getYear()
-                 << " " << payingCar.getMake()
-                 << " (" << payingCar.getTransponder() << ")]\n";
-        } else {
-            Car newCar;
-            lanes.push_back(newCar);
-
-            cout << "Time: " << timeStep << " Operation: Joined lane: ";
-            cout << "[" << newCar.getYear()
-                 << " " << newCar.getMake()
-                 << " (" << newCar.getTransponder() << ")]\n";
-        }
-
-        printQueue(lanes);
+    cout << "Testing lane: \n\n";
+    for (int i = 0; i< NR_LANES; i++)
+    {
+        cout << "Lane " << i + 1 << ":\n";
+        printQueue(lanes[i]);
         cout << endl;
-
-        timeStep++;
-
     }
+     
+
+
+
+    
 
     return 0;
 }
