@@ -25,6 +25,12 @@ void printQueue(const deque<Car> &lane){
 
 void printInitialQueues(deque<Car> lanes[], int nrlanes){
     cout << "Initial Queue:\n";
+    for (int i = 0; i < nrlanes; i++)
+    {
+        cout << "Lane " << i+1 << ":\n";
+        printQueue(lanes[i]);
+    }
+    cout << endl;
 
 }
 
@@ -34,15 +40,10 @@ int main() {
     deque<Car> lanes[NR_LANES];
 
     for (int i = 0; i < NR_LANES; i++){
-        lanes[i].push_back(Car());
-    }
-
-    cout << "Testing lane: \n\n";
-    for (int i = 0; i< NR_LANES; i++)
-    {
-        cout << "Lane " << i + 1 << ":\n";
-        printQueue(lanes[i]);
-        cout << endl;
+        for (int j = 0; j < INITIAL_SIZE; j++)
+        {
+            lanes[i].push_back(Car());
+        }
     }
 
     printInitialQueues(lanes, NR_LANES);
