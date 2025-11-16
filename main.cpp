@@ -90,7 +90,13 @@ int main() {
 
             }
         }
+        for (int i = 0; i < NR_LANES; i++)
+        {
+            cout << "Lane " << i + 1 << " Queue:\n";
+            printQueue(lanes[i]);
+        }
         
+        cout << endl;
     }
     
 
